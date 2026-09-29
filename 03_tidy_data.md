@@ -145,3 +145,30 @@ litters_df
     ##  9 #4/2/95/3-3       0   NA  
     ## 10 #4/2/95/3-3      18   NA  
     ## # ℹ 88 more rows
+
+## Deliberately untidy data
+
+``` r
+analysis_df = 
+  tibble(
+    groups = c("treatment", "treatment", "placebo", "placebo"),
+    time = c("pre", "post", "pre", "post"),
+    mean_outcome = c(10, 7, 9, 8)  # example values
+  )
+```
+
+Untidy but make more readible
+
+``` r
+analysis_df |>
+  pivot_wider(
+    names_from = time,
+    values_from = mean_outcome
+  ) |>
+knitr::kable()
+```
+
+| groups    | pre | post |
+|:----------|----:|-----:|
+| treatment |  10 |    7 |
+| placebo   |   9 |    8 |
