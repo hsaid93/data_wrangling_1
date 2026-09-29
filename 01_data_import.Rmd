@@ -47,3 +47,17 @@ tail(pups_df, 5)
 skimr::skim(pups_df)
 ```
 
+
+
+## Options to read.csv
+
+```{r}
+check out '?read_csv()' for more information
+
+
+```
+
+```{r}
+liters_df
+```
+
