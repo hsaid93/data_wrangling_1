@@ -3,8 +3,11 @@ title: "Data Import"
 output: github_document
 ---
 
+
 ```{r setup}
 library(tidyverse)
+library(readxl)
+ library(haven)
 ```
 
 Import our first dataset
@@ -51,13 +54,43 @@ skimr::skim(pups_df)
 
 ## Options to read.csv
 
+check out ?read_csv() more information
+
+## Other Fle formats
+REad in excel file
+
 ```{r}
-check out '?read_csv()' for more information
 
-
+mlb_df = read_excel("./data/mlb11.xlsx")
 ```
 
 ```{r}
-liters_df
+mlb_df
+```
+
+Read in a SAS file
+
+```{r}
+pulse_df = read_sas("./data/public_pulse_data.sas7bdat")
+pulse_df
+```
+
+## Comparison with Base R
+what about read.csv?
+ALWAYS use read_csv
+
+```{r}
+litters_base = read.csv("data/FAS_litters.csv")
+litters_reader = read_csv("data/FAS_litters.csv")
+
+litters_base
+litters_reader
+```
+
+## Exporting Data
+export mlb sub-table
+```{r}
+write_csv(mlb_df, "./data/mbl_subtable.csv")
+
 ```
 
